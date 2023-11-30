@@ -1,0 +1,3 @@
+package navigation
+
+sealed interface SplashScreenEvent
