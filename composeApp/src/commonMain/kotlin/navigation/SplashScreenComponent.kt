@@ -9,8 +9,8 @@ class SplashScreenComponent(
 ): ComponentContext by componentContext {
 fun onEvent(event: SplashScreenEvent) {
     when(event) {
-        SplashScreenEvent.ClickButtonError -> onNavigateToErrorScreen()
-        is SplashScreenEvent.ClickButtonMain -> onNavigateToMainScreen()
+        SplashScreenEvent.NavigateToErrorScreen -> onNavigateToErrorScreen()
+        is SplashScreenEvent.NavigateToMainScreen -> onNavigateToMainScreen()
     }
 }
 }
