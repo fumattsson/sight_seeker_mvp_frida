@@ -44,9 +44,15 @@ fun SplashScreen(component: SplashScreenComponent) {
         horizontalArrangement = Arrangement.Center,
     ) {
         Button(onClick = {
-            component.onEvent(SplashScreenEvent.ClickButton)
+            component.onEvent(SplashScreenEvent.ClickButtonError)
         }) {
             Text("Go to Error Screen")
+        }
+
+        Button(onClick = {
+            component.onEvent(SplashScreenEvent.ClickButtonMain)
+        }) {
+            Text("Go to Main Screen")
         }
     }
     Row (
