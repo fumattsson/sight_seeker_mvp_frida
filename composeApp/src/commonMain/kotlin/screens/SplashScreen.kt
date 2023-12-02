@@ -80,5 +80,3 @@ fun SplashScreen(component: SplashScreenComponent) {
         )
     }
 }
-
-fun DisplaySplashScreenWithTimer()
