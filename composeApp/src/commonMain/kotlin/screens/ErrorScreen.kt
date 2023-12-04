@@ -18,7 +18,7 @@ fun ErrorScreen(component: ErrorScreenComponent) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text("SightSeeker Error Screen")
+        Text("Error Screen")
         Button(onClick = {
             component.goBack()
         }) {

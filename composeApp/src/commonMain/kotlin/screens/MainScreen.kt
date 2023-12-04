@@ -18,7 +18,7 @@ fun MainScreen(component: MainScreenComponent) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text("SightSeeker Main Screen")
+        Text("Main Screen")
         Button(onClick = {
             component.goBack()
         }) {
