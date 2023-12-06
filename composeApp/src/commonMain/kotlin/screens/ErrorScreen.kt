@@ -46,8 +46,7 @@ fun ErrorScreen(component: ErrorScreenComponent) {
                 fontWeight = FontWeight.SemiBold,
             )
         )
-
-       Image(
+        Image(
            painter = painterResource("maskgroup.png"),
            contentDescription = "Small reset button image",
            modifier = Modifier.size(30.dp).padding(bottom = 10.dp)
@@ -58,8 +57,7 @@ fun ErrorScreen(component: ErrorScreenComponent) {
             contentDescription = "Something went wrong image",
             modifier = Modifier.fillMaxWidth(),
             contentScale = ContentScale.FillWidth
-        )
-
+            )
 
         }
 
