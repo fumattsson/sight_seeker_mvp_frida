@@ -17,7 +17,7 @@ class RootComponent(
         source = navigation,
         serializer = Configuration.serializer(),
         initialConfiguration = Configuration.SplashScreen,
-        handleBackButton = true,
+        handleBackButton = false,
         childFactory = ::createChild
     )
     @OptIn(ExperimentalDecomposeApi::class)
