@@ -10,10 +10,7 @@ import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -26,18 +23,25 @@ import navigation.SplashScreenComponent
 import navigation.SplashScreenEvent
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.tween
+import androidx.compose.ui.draw.alpha
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
 fun SplashScreen(component: SplashScreenComponent) {
 
-    // Display splash screen for 5000ms, then launch event to display main screen
-    var showSplashScreen by remember { mutableStateOf(true) }
-    LaunchedEffect(key1 = Unit) {
-        delay(5000)
-        showSplashScreen = false
+    val alpha = remember {
+        Animatable(0f)
     }
-    if (!showSplashScreen) {
+
+    // Display splash screen for 3000ms, then launch event to display main screen
+    LaunchedEffect(key1 = Unit) {
+        alpha.animateTo(
+            1f,
+            animationSpec = tween(2500)
+        )
+        delay(1000)
         component.onEvent(SplashScreenEvent.NavigateToMainScreen)
     }
 
@@ -48,14 +52,14 @@ fun SplashScreen(component: SplashScreenComponent) {
     ) {
         Text(
             text = "SightSeeker",
-            modifier = Modifier.padding(bottom = 200.dp),
+            modifier = Modifier.padding(bottom = 200.dp).alpha(alpha.value),
             style = TextStyle(
                 fontSize = 40.sp,
                 fontWeight = FontWeight.SemiBold
             )
         )
     }
-    // TODO: REMOVE TEMPORARY BUTTON FOR DEVELOPMENT
+    // TODO: REMOVE, TEMPORARY BUTTON FOR DEVELOPMENT
     Button(onClick = {
         component.onEvent(SplashScreenEvent.NavigateToErrorScreen)
     }) {
@@ -75,7 +79,7 @@ fun SplashScreen(component: SplashScreenComponent) {
         Image(
             painter = painterResource("splash.png"),
             contentDescription = "Travel image",
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().alpha(alpha.value),
             contentScale = ContentScale.FillWidth
         )
     }
