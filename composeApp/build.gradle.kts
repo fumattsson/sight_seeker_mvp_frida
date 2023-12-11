@@ -88,6 +88,11 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    buildToolsVersion = "33.0.1"
+    dependenciesInfo {
+        includeInApk = true
+        includeInBundle = true
+    }
     dependencies {
         debugImplementation(libs.compose.ui.tooling)
     }
