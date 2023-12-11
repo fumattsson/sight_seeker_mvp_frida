@@ -11,6 +11,7 @@ import org.jetbrains.compose.resources.ExperimentalResourceApi
 import screens.ErrorScreen
 import screens.MainScreen
 
+
 @OptIn(ExperimentalResourceApi::class)
 @Composable
 fun App(root: RootComponent) {

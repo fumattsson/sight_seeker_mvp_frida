@@ -34,7 +34,7 @@ fun SplashScreen(component: SplashScreenComponent) {
     // Display splash screen for 5000ms, then launch event to display main screen
     var showSplashScreen by remember { mutableStateOf(true) }
     LaunchedEffect(key1 = Unit) {
-        delay(5000)
+        delay(1000)
         showSplashScreen = false
     }
     if (!showSplashScreen) {
