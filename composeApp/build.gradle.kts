@@ -46,6 +46,10 @@ kotlin {
             implementation(libs.decompose.jetbrains)
             implementation(libs.kotlinx.serialization.json)
         }
+
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
+        }
     }
 }
 
