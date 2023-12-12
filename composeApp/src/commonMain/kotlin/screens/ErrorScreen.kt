@@ -19,7 +19,10 @@ import org.jetbrains.compose.resources.painterResource
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
 import androidx.compose.material.minimumInteractiveComponentSize
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
@@ -33,13 +36,23 @@ import org.jetbrains.compose.resources.resource
 @OptIn(ExperimentalResourceApi::class)
 @Composable
 fun ErrorScreen(component: ErrorScreenComponent) {
+    IconButton(onClick = {
+        component.goBack()
+    }) {
+        Icon(
+            painter = painterResource("arrow_back.png"),
+            contentDescription = "My Icon",
+            modifier = Modifier.size(20.dp),
+            tint = Color.Unspecified
+        )
+    }
     Column(
         modifier = Modifier
             .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = Arrangement.SpaceEvenly
     ) {
-        Text("Opps, something went wrong...\n Please try again",
+        Text("Oops, something went wrong...\n Please try again",
             modifier = Modifier.padding(bottom = 10.dp),
             style = TextStyle(
                 fontSize = 20.sp,
@@ -60,18 +73,4 @@ fun ErrorScreen(component: ErrorScreenComponent) {
             )
 
         }
-
-        Row(
-            modifier = Modifier.fillMaxSize(),
-            verticalAlignment = Alignment.Bottom,
-            horizontalArrangement = Arrangement.Center,
-        ) {
-            Button(onClick = {
-                component.goBack()
-            }) {
-                Text("Go back")
-
-
-        }
-    }
 }

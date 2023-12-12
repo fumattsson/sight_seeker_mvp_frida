@@ -5,7 +5,7 @@ import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.slide
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stackAnimation
 import com.arkivanov.decompose.extensions.compose.jetbrains.subscribeAsState
-import com.example.sightseekerdemo.android.SplashScreen
+import screens.SplashScreen
 import navigation.RootComponent
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import screens.ErrorScreen
