@@ -1,4 +1,4 @@
-package com.example.sightseekerdemo.android
+package screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -58,12 +58,6 @@ fun SplashScreen(component: SplashScreenComponent) {
                 fontWeight = FontWeight.SemiBold
             )
         )
-    }
-    // TODO: REMOVE, TEMPORARY BUTTON FOR DEVELOPMENT
-    Button(onClick = {
-        component.onEvent(SplashScreenEvent.NavigateToErrorScreen)
-    }) {
-        Text("Go to Error Screen")
     }
     Row(
         modifier = Modifier.fillMaxSize(),
