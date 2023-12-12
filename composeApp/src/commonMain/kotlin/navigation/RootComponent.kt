@@ -29,9 +29,6 @@ class RootComponent(
            Configuration.SplashScreen -> Child.SplashScreen(
                SplashScreenComponent(
                    componentContext = context,
-                   onNavigateToErrorScreen = {
-                       navigation.pushNew(Configuration.ErrorScreen)
-                   },
                    onNavigateToMainScreen = {
                        navigation.pushNew(Configuration.MainScreen)
                    }
@@ -40,8 +37,8 @@ class RootComponent(
            is Configuration.MainScreen -> Child.MainScreen(
                MainScreenComponent(
                    componentContext = context,
-                   onGoBack = {
-                       navigation.pop()
+                   onNavigateToErrorScreen = {
+                       navigation.pushNew(Configuration.ErrorScreen)
                    }
                )
            )
