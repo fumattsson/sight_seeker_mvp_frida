@@ -31,16 +31,8 @@ import androidx.compose.ui.draw.alpha
 @Composable
 fun SplashScreen(component: SplashScreenComponent) {
 
-<<<<<<< HEAD
-    // Display splash screen for 5000ms, then launch event to display main screen
-    var showSplashScreen by remember { mutableStateOf(true) }
-    LaunchedEffect(key1 = Unit) {
-        delay(1000)
-        showSplashScreen = false
-=======
     val alpha = remember {
         Animatable(0f)
->>>>>>> 5d090a7 (remove unnecessary boolean logic in launchedEffect and add animations to SplashScreen)
     }
 
     // Display splash screen for 3000ms, then launch event to display main screen
