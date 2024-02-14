@@ -1,0 +1,45 @@
+{
+  "name": "New York",
+  "touristAttractions": [
+    {
+      "name": "Central Park",
+      "address": "59th to 110th St",
+      "distance": "0.8 km"
+    },
+    {
+      "name": "Statue of Liberty",
+      "address": "Liberty Island",
+      "distance": "8.5 km"
+    },
+    {
+      "name": "Empire State Building",
+      "address": "350 5th Ave",
+      "distance": "4.3 km"
+    },
+    {
+      "name": "Times Square",
+      "address": "Manhattan, NY 10036",
+      "distance": "3.7 km"
+    },
+    {
+      "name": "Brooklyn Bridge",
+      "address": "New York, NY 10038",
+      "distance": "5.2 km"
+    },
+    {
+      "name": "Museum of Modern Art",
+      "address": "11 W 53rd St",
+      "distance": "3.1 km"
+    },
+    {
+      "name": "One World Trade Center",
+      "address": "285 Fulton St",
+      "distance": "7.0 km"
+    },
+    {
+      "name": "The Met",
+      "address": "1000 5th Ave",
+      "distance": "5.9 km"
+    }
+  ]
+}

@@ -26,12 +26,9 @@ import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
-val secondaryColor = Color(0xFFE6F2F4)
-val primaryBgColor = Color(0x3B45BFE4)
-
 @OptIn(ExperimentalResourceApi::class)
 @Composable
-fun listItem (header: String, content: String, strTime: String) {
+fun AttractionListItem (name: String, address: String, distance: String) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -50,10 +47,10 @@ fun listItem (header: String, content: String, strTime: String) {
             Column(
                 modifier = Modifier
             ) {
-                Text(text = header, fontSize = 18.sp, fontWeight = FontWeight.Bold)
-                Text(text = content,
+                Text(text = name, fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                Text(text = address,
                     style = TextStyle(
-                        fontSize = 14.sp,
+                        fontSize = 12.sp,
                         lineHeight = 15.93.sp,
                         fontWeight = FontWeight(400),
                         color = Color.DarkGray,
@@ -71,7 +68,7 @@ fun listItem (header: String, content: String, strTime: String) {
                     .fillMaxHeight(),
                 contentAlignment = Alignment.Center
             ) {
-                Text(text = strTime, fontSize = 14.sp, color = Color.LightGray, textAlign = TextAlign.End)
+                Text(text = distance, fontSize = 12.sp, color = Color.LightGray, textAlign = TextAlign.End)
             }
 
             Box(
@@ -89,7 +86,5 @@ fun listItem (header: String, content: String, strTime: String) {
                 )
             }
         }
-
-
     }
 }

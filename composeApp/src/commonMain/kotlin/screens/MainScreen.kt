@@ -1,5 +1,6 @@
 package screens
 
+import SharedFileReader
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
@@ -26,47 +27,41 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import navigation.MainScreenComponent
 import androidx.compose.ui.unit.dp
-import components.listItem
+import components.AttractionListItem
+import data.ContentData
+import data.LocationData
+import kotlinx.serialization.json.Json
 import navigation.MainScreenEvent
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
-val primaryColor = Color(0xFF45BFE4)
-val secondaryColor = Color(0xFFE6F2F4)
 val backgroundColor = Color(0xFFF3F8F9)
-val textColor = Color(0xFF111417)
-val accentColor = Color(0xFFFF8800)
-// declare
 val primaryBgColor = Color(0x3B45BFE4)
-
-class item(val header: String, val content: String, val time: String)
-
-val lists = arrayOf(
-    item("Empire State Building", "231 East 95th Street, HK", "2.8km"),
-    item("Rockefeller Center", "231 East 95th Street, HK", "3.8km"),
-    item("Central Park", "231 East 95th Street, HK", "4.8km"),
-    item("The High Line", "231 East 95th Street, HK", "4.8km"),
-    item("Flatiron Building", "231 East 95th Street, HK", "4.8km"),
-    item("Statue of Liberty", "231 East 95th Street, HK", "4.8km"),
-    item("Empire State Building", "231 East 95th Street, HK", "4.8km"),
-    item("Empire State Building", "231 East 95th Street, HK", "4.8km"),
-)
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
 fun MainScreen(component: MainScreenComponent) {
+
+    // Load current location data from local json file and parse as LocationData
+    val locationJsonFile = SharedFileReader().loadJsonFile("locationData.json")
+    val location = locationJsonFile?.let { Json.decodeFromString<LocationData>(it) }
+
+    // Load strings from local json file and parse as ContentData
+    val contentJsonFile = SharedFileReader().loadJsonFile("contentData.json")
+    val content = contentJsonFile?.let { Json.decodeFromString<ContentData>(it) }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(screens.backgroundColor)
+            .background(backgroundColor)
             .padding(30.dp, 50.dp, 30.dp, 0.dp),
         horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.spacedBy(20.dp)
     ) {
 
         Text(
-            text = "Welcome to New York!",
-            fontSize = 32.sp,
+            text = "${content!!.welcomeTo} ${location!!.name}!",
+            fontSize = 30.sp,
             fontWeight = FontWeight.Black,
             modifier = Modifier.pointerInput(Unit) {
                 detectTapGestures (
@@ -95,7 +90,7 @@ fun MainScreen(component: MainScreenComponent) {
                 Row(
                     modifier = Modifier
                         .width(40.dp),
-                    horizontalArrangement = Arrangement.End
+                    horizontalArrangement = Arrangement.Center
                 ) {
                     Icon(
                         painter = painterResource("location.png"),
@@ -106,10 +101,10 @@ fun MainScreen(component: MainScreenComponent) {
                 }
 
                 Text(
-                    modifier = Modifier.padding(5.dp, 16.dp, 16.dp, 16.dp),
-                    text = "New York, USA",
+                    modifier = Modifier.padding(0.dp, 10.dp, 16.dp, 10.dp),
+                    text = location.name,
                     color = Color.Black,
-                    fontSize = 16.sp,
+                    fontSize = 14.sp,
                     fontWeight = FontWeight.Bold
                 )
             }
@@ -126,7 +121,7 @@ fun MainScreen(component: MainScreenComponent) {
                 Row(
                     modifier = Modifier
                         .width(40.dp),
-                    horizontalArrangement = Arrangement.End
+                    horizontalArrangement = Arrangement.Center
                 ) {
                     Icon(
                         painter = painterResource("distance.png"),
@@ -137,10 +132,10 @@ fun MainScreen(component: MainScreenComponent) {
                 }
 
                 Text(
-                    modifier = Modifier.padding(5.dp, 16.dp, 16.dp, 16.dp),
+                    modifier = Modifier.padding(0.dp, 10.dp, 16.dp, 10.dp),
                     text = "1.5km",
                     color = Color.Black,
-                    fontSize = 16.sp,
+                    fontSize = 14.sp,
                     fontWeight = FontWeight.Bold
                 )
             }
@@ -158,19 +153,19 @@ fun MainScreen(component: MainScreenComponent) {
                     .fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(10.dp)
             ) {
-                Text(text = "Nearest Places", fontSize = 24.sp, fontWeight = FontWeight.Bold)
+                Text(text = content.nearbyAttractions, fontSize = 22.sp, fontWeight = FontWeight.Bold)
             }
 
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .verticalScroll(rememberScrollState()),
+                    .verticalScroll(rememberScrollState())
+                    .padding(0.dp, 0.dp, 0.dp,20.dp),
                 horizontalAlignment = Alignment.Start,
                 verticalArrangement = Arrangement.spacedBy(20.dp),
             ) {
-                for(item in lists) {
-                    println(item.header)
-                    listItem(item.header, item.content, item.time)
+                for(attractionItem in location.touristAttractions) {
+                    AttractionListItem(attractionItem.name, attractionItem.address, attractionItem.distance)
                 }
             }
         }
