@@ -5,18 +5,12 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -28,17 +22,17 @@ import androidx.compose.ui.unit.sp
 import navigation.MainScreenComponent
 import androidx.compose.ui.unit.dp
 import components.AttractionListItem
+import components.CurrentLocationBox
+import components.DistanceDropdownMenu
 import data.ContentData
 import data.LocationData
 import kotlinx.serialization.json.Json
 import navigation.MainScreenEvent
-import org.jetbrains.compose.resources.ExperimentalResourceApi
-import org.jetbrains.compose.resources.painterResource
 
 val backgroundColor = Color(0xFFF3F8F9)
-val primaryBgColor = Color(0x3B45BFE4)
+val primaryColor = Color(0x3B45BFE4)
+val secondaryColor = Color(0xFF47BDE1)
 
-@OptIn(ExperimentalResourceApi::class)
 @Composable
 fun MainScreen(component: MainScreenComponent) {
 
@@ -75,70 +69,11 @@ fun MainScreen(component: MainScreenComponent) {
         Row(
             modifier = Modifier
                 .fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(10.dp)
+            horizontalArrangement = Arrangement.spacedBy(10.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            Row(
-                modifier = Modifier
-                    .width(IntrinsicSize.Max)
-                    .height(IntrinsicSize.Max)
-                    .padding(8.dp)
-                    .background(color = primaryBgColor, shape = RoundedCornerShape(20.dp)),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-
-
-                Row(
-                    modifier = Modifier
-                        .width(40.dp),
-                    horizontalArrangement = Arrangement.Center
-                ) {
-                    Icon(
-                        painter = painterResource("location.png"),
-                        contentDescription = "My Icon",
-                        modifier = Modifier.size(16.dp),
-                        tint = Color.Unspecified
-                    )
-                }
-
-                Text(
-                    modifier = Modifier.padding(0.dp, 10.dp, 16.dp, 10.dp),
-                    text = location.name,
-                    color = Color.Black,
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.Bold
-                )
-            }
-
-            Row(
-                modifier = Modifier
-                    .width(IntrinsicSize.Max)
-                    .height(IntrinsicSize.Max)
-                    .padding(8.dp)
-                    .background(color = primaryBgColor, shape = RoundedCornerShape(20.dp)),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-
-                Row(
-                    modifier = Modifier
-                        .width(40.dp),
-                    horizontalArrangement = Arrangement.Center
-                ) {
-                    Icon(
-                        painter = painterResource("distance.png"),
-                        contentDescription = "My Icon",
-                        modifier = Modifier.size(20.dp),
-                        tint = Color.Unspecified
-                    )
-                }
-
-                Text(
-                    modifier = Modifier.padding(0.dp, 10.dp, 16.dp, 10.dp),
-                    text = "1.5km",
-                    color = Color.Black,
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.Bold
-                )
-            }
+            CurrentLocationBox(locationName = location.name)
+            DistanceDropdownMenu()
         }
 
         Column(

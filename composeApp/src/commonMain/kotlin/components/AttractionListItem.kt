@@ -73,7 +73,7 @@ fun AttractionListItem (name: String, address: String, distance: String) {
 
             Box(
                 modifier = Modifier
-                    .background(screens.primaryBgColor, shape = RoundedCornerShape(0.dp ,20.dp, 20.dp, 0.dp))
+                    .background(screens.primaryColor, shape = RoundedCornerShape(0.dp ,20.dp, 20.dp, 0.dp))
                     .width(50.dp)
                     .fillMaxHeight(),
                 contentAlignment = Alignment.Center
