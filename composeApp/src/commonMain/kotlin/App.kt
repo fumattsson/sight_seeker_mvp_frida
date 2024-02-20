@@ -7,12 +7,11 @@ import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stac
 import com.arkivanov.decompose.extensions.compose.jetbrains.subscribeAsState
 import screens.SplashScreen
 import navigation.RootComponent
-import org.jetbrains.compose.resources.ExperimentalResourceApi
+import screens.AttractionDetailsScreen
 import screens.ErrorScreen
 import screens.MainScreen
 
 
-@OptIn(ExperimentalResourceApi::class)
 @Composable
 fun App(root: RootComponent) {
         MaterialTheme {
@@ -25,6 +24,7 @@ fun App(root: RootComponent) {
                 is RootComponent.Child.SplashScreen -> SplashScreen(instance.component)
                 is RootComponent.Child.MainScreen -> MainScreen(instance.component)
                 is RootComponent.Child.ErrorScreen -> ErrorScreen(instance.component)
+                is RootComponent.Child.AttractionDetailsScreen -> AttractionDetailsScreen(instance.component)
             }
         }
     }

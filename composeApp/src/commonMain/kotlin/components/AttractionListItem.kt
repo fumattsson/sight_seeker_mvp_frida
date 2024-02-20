@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -23,12 +24,19 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import navigation.MainScreenComponent
+import navigation.MainScreenEvent
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
-fun AttractionListItem (name: String, address: String, distance: String) {
+fun AttractionListItem (
+    name: String,
+    address: String,
+    distance: String,
+    component: MainScreenComponent
+) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -78,11 +86,18 @@ fun AttractionListItem (name: String, address: String, distance: String) {
                     .fillMaxHeight(),
                 contentAlignment = Alignment.Center
             ) {
-                Icon(
-                    painter = painterResource("arrow_forward.png"),
-                    contentDescription = "My Icon",
-                    modifier = Modifier.size(17.dp),
-                    tint = Color.Unspecified
+                IconButton(
+                    onClick = {
+                        component.onEvent(MainScreenEvent.NavigateToAttractionDetailsScreen)
+                    },
+                    content = {
+                        Icon(
+                            painter = painterResource("arrow_forward.png"),
+                            contentDescription = "My Icon",
+                            modifier = Modifier.size(17.dp),
+                            tint = Color.Unspecified
+                        )
+                    }
                 )
             }
         }

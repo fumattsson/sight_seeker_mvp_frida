@@ -39,11 +39,22 @@ class RootComponent(
                    componentContext = context,
                    onNavigateToErrorScreen = {
                        navigation.pushNew(Configuration.ErrorScreen)
+                   },
+                   onNavigateToAttractionDetailsScreen = {
+                       navigation.pushNew(Configuration.AttractionDetailsScreen)
                    }
                )
            )
            is Configuration.ErrorScreen -> Child.ErrorScreen(
                ErrorScreenComponent(
+                   componentContext = context,
+                   onGoBack = {
+                       navigation.pop()
+                   }
+               )
+           )
+           is Configuration.AttractionDetailsScreen -> Child.AttractionDetailsScreen(
+               AttractionDetailsScreenComponent(
                    componentContext = context,
                    onGoBack = {
                        navigation.pop()
@@ -57,6 +68,7 @@ class RootComponent(
         data class SplashScreen(val component: SplashScreenComponent): Child()
         data class MainScreen(val component: MainScreenComponent): Child()
         data class ErrorScreen(val component: ErrorScreenComponent): Child()
+        data class AttractionDetailsScreen(val component: AttractionDetailsScreenComponent): Child()
     }
 
     @Serializable
@@ -67,5 +79,7 @@ class RootComponent(
         data object MainScreen: Configuration()
         @Serializable
         data object ErrorScreen: Configuration()
+        @Serializable
+        data object AttractionDetailsScreen: Configuration()
     }
 }

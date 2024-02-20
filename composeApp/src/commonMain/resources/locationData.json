@@ -4,42 +4,50 @@
     {
       "name": "Central Park",
       "address": "59th to 110th St",
-      "distance": "0.8 km"
+      "distance": "0.8 km",
+      "description": "Central Park is an iconic green space in the heart of Manhattan. It offers various recreational activities such as walking, biking, and picnicking. The park features lush landscapes, lakes, gardens, and famous landmarks like Bethesda Terrace and Strawberry Fields."
     },
     {
       "name": "Museum of Modern Art",
       "address": "11 W 53rd St",
-      "distance": "3.1 km"
+      "distance": "3.1 km",
+      "description": "The Museum of Modern Art (MoMA) is a renowned institution dedicated to contemporary and modern art. It houses a vast collection of paintings, sculptures, photographs, and other artworks from prominent artists such as Picasso, Van Gogh, and Warhol."
     },
     {
       "name": "Times Square",
       "address": "Manhattan, NY 10036",
-      "distance": "3.7 km"
+      "distance": "3.7 km",
+      "description": "Times Square is a bustling commercial and entertainment hub in Midtown Manhattan. Known for its vibrant billboards, theaters, and iconic New Year's Eve ball drop, it's a must-visit destination for shopping, dining, and experiencing the energy of New York City."
     },
     {
       "name": "Empire State Building",
       "address": "350 5th Ave",
-      "distance": "4.3 km"
+      "distance": "4.3 km",
+      "description": "The Empire State Building is an architectural marvel and a symbol of New York City. Offering panoramic views of the city skyline from its observatories on the 86th and 102nd floors, it's a quintessential attraction for visitors to experience the city's grandeur."
     },
     {
       "name": "Brooklyn Bridge",
       "address": "New York, NY 10038",
-      "distance": "5.2 km"
+      "distance": "5.2 km",
+      "description": "The Brooklyn Bridge is an iconic suspension bridge spanning the East River, connecting Manhattan and Brooklyn. It's renowned for its stunning architecture and panoramic views of the New York City skyline. Walking or biking across the bridge is a popular activity for locals and tourists alike."
     },
     {
       "name": "The Met",
       "address": "1000 5th Ave",
-      "distance": "5.9 km"
+      "distance": "5.9 km",
+      "description": "The Metropolitan Museum of Art, commonly referred to as The Met, is one of the world's largest and most prestigious art museums. It houses a vast collection spanning over 5,000 years of art from various cultures and civilizations, including paintings, sculptures, artifacts, and more."
     },
     {
       "name": "One World Trade Center",
       "address": "285 Fulton St",
-      "distance": "7.0 km"
+      "distance": "7.0 km",
+      "description": "One World Trade Center, also known as the Freedom Tower, is the tallest building in the Western Hemisphere. It stands as a symbol of resilience and hope, commemorating the lives lost during the September 11 attacks. Visitors can experience panoramic views of New York City from its observatory."
     },
     {
       "name": "Statue of Liberty",
       "address": "Liberty Island",
-      "distance": "8.5 km"
+      "distance": "8.5 km",
+      "description": "The Statue of Liberty is an iconic symbol of freedom and democracy, located on Liberty Island in New York Harbor. A gift from France to the United States, it represents the welcoming of immigrants and stands as a beacon of hope and liberty. Visitors can explore the statue and learn about its history."
     }
   ]
 }

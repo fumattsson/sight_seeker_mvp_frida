@@ -11,5 +11,6 @@ data class LocationData(
 data class TouristAttraction(
     val name: String,
     val address: String,
-    val distance: String
+    val distance: String,
+    val description: String
 )
