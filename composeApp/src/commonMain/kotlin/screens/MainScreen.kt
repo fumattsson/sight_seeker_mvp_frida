@@ -100,7 +100,7 @@ fun MainScreen(component: MainScreenComponent) {
                 verticalArrangement = Arrangement.spacedBy(20.dp),
             ) {
                 for(attractionItem in location.touristAttractions) {
-                    AttractionListItem(attractionItem.name, attractionItem.address, attractionItem.distance, component)
+                    AttractionListItem(attractionItem.name, attractionItem.address, attractionItem.distance, attractionItem.description, component)
                 }
             }
         }

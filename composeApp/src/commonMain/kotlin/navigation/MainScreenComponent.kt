@@ -5,12 +5,14 @@ import com.arkivanov.decompose.ComponentContext
 class MainScreenComponent(
     componentContext: ComponentContext,
     private val onNavigateToErrorScreen: () -> Unit,
-    private val onNavigateToAttractionDetailsScreen: () -> Unit
+    private val onNavigateToAttractionDetailsScreen: (name: String, description: String) -> Unit
     ): ComponentContext by componentContext {
     fun onEvent(event: MainScreenEvent) {
         when (event) {
             MainScreenEvent.NavigateToErrorScreen -> onNavigateToErrorScreen()
-            MainScreenEvent.NavigateToAttractionDetailsScreen -> onNavigateToAttractionDetailsScreen()
         }
+    }
+    fun onAttractionDetailArrowClicked(name: String, description: String) {
+        onNavigateToAttractionDetailsScreen(name, description)
     }
 }

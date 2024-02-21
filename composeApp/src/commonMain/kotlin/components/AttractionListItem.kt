@@ -25,7 +25,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import navigation.MainScreenComponent
-import navigation.MainScreenEvent
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
@@ -35,6 +34,7 @@ fun AttractionListItem (
     name: String,
     address: String,
     distance: String,
+    description: String,
     component: MainScreenComponent
 ) {
     Row(
@@ -88,7 +88,7 @@ fun AttractionListItem (
             ) {
                 IconButton(
                     onClick = {
-                        component.onEvent(MainScreenEvent.NavigateToAttractionDetailsScreen)
+                        component.onAttractionDetailArrowClicked(name, description)
                     },
                     content = {
                         Icon(
